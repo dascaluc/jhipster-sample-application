@@ -21,7 +21,8 @@
         },
         {
             "fieldName": "motivation",
-            "fieldType": "String"
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
         }
     ],
     "relationships": [

@@ -7,7 +7,7 @@ export interface ITimeTracking {
   id?: number;
   date?: Moment;
   accessTypee?: AccesType;
-  description?: string;
+  description?: any;
   door?: IDoor;
   employee?: IEmployee;
 }

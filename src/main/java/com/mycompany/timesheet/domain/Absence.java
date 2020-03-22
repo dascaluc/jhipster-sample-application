@@ -36,6 +36,7 @@ public class Absence implements Serializable {
     @Column(name = "phone_number")
     private String phoneNumber;
 
+    @Lob
     @Column(name = "motivation")
     private String motivation;
 

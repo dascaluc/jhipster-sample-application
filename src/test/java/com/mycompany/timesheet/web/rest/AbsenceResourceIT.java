@@ -13,6 +13,7 @@ import org.springframework.http.MediaType;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.Base64Utils;
 import javax.persistence.EntityManager;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
@@ -180,7 +181,7 @@ public class AbsenceResourceIT {
             .andExpect(jsonPath("$.[*].from").value(hasItem(DEFAULT_FROM.toString())))
             .andExpect(jsonPath("$.[*].to").value(hasItem(DEFAULT_TO.toString())))
             .andExpect(jsonPath("$.[*].phoneNumber").value(hasItem(DEFAULT_PHONE_NUMBER)))
-            .andExpect(jsonPath("$.[*].motivation").value(hasItem(DEFAULT_MOTIVATION)));
+            .andExpect(jsonPath("$.[*].motivation").value(hasItem(DEFAULT_MOTIVATION.toString())));
     }
     
     @Test
@@ -197,7 +198,7 @@ public class AbsenceResourceIT {
             .andExpect(jsonPath("$.from").value(DEFAULT_FROM.toString()))
             .andExpect(jsonPath("$.to").value(DEFAULT_TO.toString()))
             .andExpect(jsonPath("$.phoneNumber").value(DEFAULT_PHONE_NUMBER))
-            .andExpect(jsonPath("$.motivation").value(DEFAULT_MOTIVATION));
+            .andExpect(jsonPath("$.motivation").value(DEFAULT_MOTIVATION.toString()));
     }
 
     @Test
