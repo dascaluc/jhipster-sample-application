@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <!--
+        Added the constraints for entity TimeTracking.
+    -->
+    <changeSet id="20200322190500-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="door_id"
+                                 baseTableName="time_tracking"
+                                 constraintName="fk_time_tracking_door_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="door"/>
+
+        <addForeignKeyConstraint baseColumnNames="employee_id"
+                                 baseTableName="time_tracking"
+                                 constraintName="fk_time_tracking_employee_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="employee"/>
+
+    </changeSet>
+</databaseChangeLog>
