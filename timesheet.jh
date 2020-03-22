@@ -1,7 +1,7 @@
 entity TimeTracking {
 	date Instant required,
     accessTypee AccesType required,
-    description String
+    description TextBlob
 }
 
 entity Employee{
@@ -20,7 +20,7 @@ entity Absence{
 	from Instant required,
     to Instant required,
     phoneNumber String,
-    motivation String
+    motivation TextBlob
 } 
 
 entity AbsenceType{
