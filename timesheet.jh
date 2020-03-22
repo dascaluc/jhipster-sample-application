@@ -28,11 +28,11 @@ entity AbsenceType{
 }
 
 relationship ManyToOne {
-	TimeTracking{door} to Door
+	TimeTracking{door} to Door{t(doorName)}
 }
 
 relationship ManyToOne {
-	TimeTracking{employee} to Employee
+	TimeTracking{employee} to Employee{emp(name)}
 }
 
 relationship ManyToOne {
