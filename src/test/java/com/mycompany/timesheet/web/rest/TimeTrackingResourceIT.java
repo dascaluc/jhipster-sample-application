@@ -13,6 +13,7 @@ import org.springframework.http.MediaType;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.Base64Utils;
 import javax.persistence.EntityManager;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
@@ -174,7 +175,7 @@ public class TimeTrackingResourceIT {
             .andExpect(jsonPath("$.[*].id").value(hasItem(timeTracking.getId().intValue())))
             .andExpect(jsonPath("$.[*].date").value(hasItem(DEFAULT_DATE.toString())))
             .andExpect(jsonPath("$.[*].accessTypee").value(hasItem(DEFAULT_ACCESS_TYPEE.toString())))
-            .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION)));
+            .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION.toString())));
     }
     
     @Test
@@ -190,7 +191,7 @@ public class TimeTrackingResourceIT {
             .andExpect(jsonPath("$.id").value(timeTracking.getId().intValue()))
             .andExpect(jsonPath("$.date").value(DEFAULT_DATE.toString()))
             .andExpect(jsonPath("$.accessTypee").value(DEFAULT_ACCESS_TYPEE.toString()))
-            .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION));
+            .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION.toString()));
     }
 
     @Test

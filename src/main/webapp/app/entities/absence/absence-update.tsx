@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link, RouteComponentProps } from 'react-router-dom';
 import { Button, Row, Col, Label } from 'reactstrap';
 import { AvFeedback, AvForm, AvGroup, AvInput, AvField } from 'availity-reactstrap-validation';
-import { ICrudGetAction, ICrudGetAllAction, ICrudPutAction } from 'react-jhipster';
+import { ICrudGetAction, ICrudGetAllAction, setFileData, byteSize, ICrudPutAction } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IRootState } from 'app/shared/reducers';
 
@@ -11,7 +11,7 @@ import { IEmployee } from 'app/shared/model/employee.model';
 import { getEntities as getEmployees } from 'app/entities/employee/employee.reducer';
 import { IAbsenceType } from 'app/shared/model/absence-type.model';
 import { getEntities as getAbsenceTypes } from 'app/entities/absence-type/absence-type.reducer';
-import { getEntity, updateEntity, createEntity, reset } from './absence.reducer';
+import { getEntity, updateEntity, createEntity, setBlob, reset } from './absence.reducer';
 import { IAbsence } from 'app/shared/model/absence.model';
 import { convertDateTimeFromServer, convertDateTimeToServer, displayDefaultDateTime } from 'app/shared/util/date-utils';
 import { mapIdList } from 'app/shared/util/entity-utils';
@@ -25,6 +25,8 @@ export const AbsenceUpdate = (props: IAbsenceUpdateProps) => {
 
   const { absenceEntity, employees, absenceTypes, loading, updating } = props;
 
+  const { motivation } = absenceEntity;
+
   const handleClose = () => {
     props.history.push('/absence');
   };
@@ -37,6 +39,14 @@ export const AbsenceUpdate = (props: IAbsenceUpdateProps) => {
     props.getEmployees();
     props.getAbsenceTypes();
   }, []);
+
+  const onBlobChange = (isAnImage, name) => event => {
+    setFileData(event, (contentType, data) => props.setBlob(name, data, contentType), isAnImage);
+  };
+
+  const clearBlob = name => () => {
+    props.setBlob(name, undefined, undefined);
+  };
 
   useEffect(() => {
     if (props.updateSuccess) {
@@ -123,7 +133,7 @@ export const AbsenceUpdate = (props: IAbsenceUpdateProps) => {
                 <Label id="motivationLabel" for="absence-motivation">
                   Motivation
                 </Label>
-                <AvField id="absence-motivation" type="text" name="motivation" />
+                <AvInput id="absence-motivation" type="textarea" name="motivation" />
               </AvGroup>
               <AvGroup>
                 <Label for="absence-employee">Employee</Label>
@@ -183,6 +193,7 @@ const mapDispatchToProps = {
   getAbsenceTypes,
   getEntity,
   updateEntity,
+  setBlob,
   createEntity,
   reset
 };

@@ -36,6 +36,7 @@ public class TimeTracking implements Serializable {
     @Column(name = "access_typee", nullable = false)
     private AccesType accessTypee;
 
+    @Lob
     @Column(name = "description")
     private String description;
 

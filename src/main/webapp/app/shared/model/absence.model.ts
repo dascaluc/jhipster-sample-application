@@ -7,7 +7,7 @@ export interface IAbsence {
   from?: Moment;
   to?: Moment;
   phoneNumber?: string;
-  motivation?: string;
+  motivation?: any;
   employee?: IEmployee;
   type?: IAbsenceType;
 }

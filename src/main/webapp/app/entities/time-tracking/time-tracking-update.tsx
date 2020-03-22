@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link, RouteComponentProps } from 'react-router-dom';
 import { Button, Row, Col, Label } from 'reactstrap';
 import { AvFeedback, AvForm, AvGroup, AvInput, AvField } from 'availity-reactstrap-validation';
-import { ICrudGetAction, ICrudGetAllAction, ICrudPutAction } from 'react-jhipster';
+import { ICrudGetAction, ICrudGetAllAction, setFileData, byteSize, ICrudPutAction } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IRootState } from 'app/shared/reducers';
 
@@ -11,7 +11,7 @@ import { IDoor } from 'app/shared/model/door.model';
 import { getEntities as getDoors } from 'app/entities/door/door.reducer';
 import { IEmployee } from 'app/shared/model/employee.model';
 import { getEntities as getEmployees } from 'app/entities/employee/employee.reducer';
-import { getEntity, updateEntity, createEntity, reset } from './time-tracking.reducer';
+import { getEntity, updateEntity, createEntity, setBlob, reset } from './time-tracking.reducer';
 import { ITimeTracking } from 'app/shared/model/time-tracking.model';
 import { convertDateTimeFromServer, convertDateTimeToServer, displayDefaultDateTime } from 'app/shared/util/date-utils';
 import { mapIdList } from 'app/shared/util/entity-utils';
@@ -25,6 +25,8 @@ export const TimeTrackingUpdate = (props: ITimeTrackingUpdateProps) => {
 
   const { timeTrackingEntity, doors, employees, loading, updating } = props;
 
+  const { description } = timeTrackingEntity;
+
   const handleClose = () => {
     props.history.push('/time-tracking');
   };
@@ -37,6 +39,14 @@ export const TimeTrackingUpdate = (props: ITimeTrackingUpdateProps) => {
     props.getDoors();
     props.getEmployees();
   }, []);
+
+  const onBlobChange = (isAnImage, name) => event => {
+    setFileData(event, (contentType, data) => props.setBlob(name, data, contentType), isAnImage);
+  };
+
+  const clearBlob = name => () => {
+    props.setBlob(name, undefined, undefined);
+  };
 
   useEffect(() => {
     if (props.updateSuccess) {
@@ -115,7 +125,7 @@ export const TimeTrackingUpdate = (props: ITimeTrackingUpdateProps) => {
                 <Label id="descriptionLabel" for="time-tracking-description">
                   Description
                 </Label>
-                <AvField id="time-tracking-description" type="text" name="description" />
+                <AvInput id="time-tracking-description" type="textarea" name="description" />
               </AvGroup>
               <AvGroup>
                 <Label for="time-tracking-door">Door</Label>
@@ -175,6 +185,7 @@ const mapDispatchToProps = {
   getEmployees,
   getEntity,
   updateEntity,
+  setBlob,
   createEntity,
   reset
 };
