@@ -1,0 +1,21 @@
+{
+    "name": "Door",
+    "fields": [
+        {
+            "fieldName": "doorName",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20200322190700",
+    "entityTableName": "door",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

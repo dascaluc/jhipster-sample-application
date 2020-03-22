@@ -40,6 +40,11 @@ public class CacheConfiguration {
             createCache(cm, com.mycompany.timesheet.domain.User.class.getName());
             createCache(cm, com.mycompany.timesheet.domain.Authority.class.getName());
             createCache(cm, com.mycompany.timesheet.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.mycompany.timesheet.domain.TimeTracking.class.getName());
+            createCache(cm, com.mycompany.timesheet.domain.Employee.class.getName());
+            createCache(cm, com.mycompany.timesheet.domain.Door.class.getName());
+            createCache(cm, com.mycompany.timesheet.domain.Absence.class.getName());
+            createCache(cm, com.mycompany.timesheet.domain.AbsenceType.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

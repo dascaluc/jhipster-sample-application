@@ -1,0 +1,48 @@
+entity TimeTracking {
+	date Instant required,
+    accessTypee AccesType required,
+    description String
+}
+
+entity Employee{
+	name String
+}
+
+entity Door {
+	doorName String
+}
+
+enum AccesType {
+    IN, OUT
+}
+
+entity Absence{
+	from Instant required,
+    to Instant required,
+    phoneNumber String,
+    motivation String
+} 
+
+entity AbsenceType{
+	name String
+}
+
+relationship ManyToOne {
+	TimeTracking{door} to Door
+}
+
+relationship ManyToOne {
+	TimeTracking{employee} to Employee
+}
+
+relationship ManyToOne {
+	Absence{employee} to Employee
+}
+
+relationship ManyToOne {
+	Absence{type} to AbsenceType
+}
+
+// Set pagination options
+paginate TimeTracking, Absence with infinite-scroll
+paginate Door, AbsenceType with pagination
