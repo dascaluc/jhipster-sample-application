@@ -134,7 +134,7 @@ export const TimeTrackingUpdate = (props: ITimeTrackingUpdateProps) => {
                   {doors
                     ? doors.map(otherEntity => (
                         <option value={otherEntity.id} key={otherEntity.id}>
-                          {otherEntity.id}
+                          {otherEntity.doorName}
                         </option>
                       ))
                     : null}
@@ -147,7 +147,7 @@ export const TimeTrackingUpdate = (props: ITimeTrackingUpdateProps) => {
                   {employees
                     ? employees.map(otherEntity => (
                         <option value={otherEntity.id} key={otherEntity.id}>
-                          {otherEntity.id}
+                          {otherEntity.name}
                         </option>
                       ))
                     : null}

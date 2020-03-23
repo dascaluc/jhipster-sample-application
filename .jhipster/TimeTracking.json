@@ -28,14 +28,14 @@
             "otherEntityName": "door",
             "otherEntityRelationshipName": "timeTracking",
             "relationshipName": "door",
-            "otherEntityField": "id"
+            "otherEntityField": "doorName"
         },
         {
             "relationshipType": "many-to-one",
             "otherEntityName": "employee",
             "otherEntityRelationshipName": "timeTracking",
             "relationshipName": "employee",
-            "otherEntityField": "id"
+            "otherEntityField": "name"
         }
     ],
     "changelogDate": "20200322190500",

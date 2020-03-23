@@ -40,9 +40,9 @@ export const TimeTrackingDetail = (props: ITimeTrackingDetailProps) => {
           </dt>
           <dd>{timeTrackingEntity.description}</dd>
           <dt>Door</dt>
-          <dd>{timeTrackingEntity.door ? timeTrackingEntity.door.id : ''}</dd>
+          <dd>{timeTrackingEntity.door ? timeTrackingEntity.door.doorName : ''}</dd>
           <dt>Employee</dt>
-          <dd>{timeTrackingEntity.employee ? timeTrackingEntity.employee.id : ''}</dd>
+          <dd>{timeTrackingEntity.employee ? timeTrackingEntity.employee.name : ''}</dd>
         </dl>
         <Button tag={Link} to="/time-tracking" replace color="info">
           <FontAwesomeIcon icon="arrow-left" /> <span className="d-none d-md-inline">Back</span>
