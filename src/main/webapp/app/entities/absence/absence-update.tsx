@@ -142,7 +142,7 @@ export const AbsenceUpdate = (props: IAbsenceUpdateProps) => {
                   {employees
                     ? employees.map(otherEntity => (
                         <option value={otherEntity.id} key={otherEntity.id}>
-                          {otherEntity.id}
+                          {otherEntity.name}
                         </option>
                       ))
                     : null}
@@ -155,7 +155,7 @@ export const AbsenceUpdate = (props: IAbsenceUpdateProps) => {
                   {absenceTypes
                     ? absenceTypes.map(otherEntity => (
                         <option value={otherEntity.id} key={otherEntity.id}>
-                          {otherEntity.id}
+                          {otherEntity.name}
                         </option>
                       ))
                     : null}

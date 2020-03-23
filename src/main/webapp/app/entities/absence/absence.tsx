@@ -128,8 +128,8 @@ export const Absence = (props: IAbsenceProps) => {
                     </td>
                     <td>{absence.phoneNumber}</td>
                     <td>{absence.motivation}</td>
-                    <td>{absence.employee ? <Link to={`employee/${absence.employee.id}`}>{absence.employee.id}</Link> : ''}</td>
-                    <td>{absence.type ? <Link to={`absence-type/${absence.type.id}`}>{absence.type.id}</Link> : ''}</td>
+                    <td>{absence.employee ? <Link to={`employee/${absence.employee.id}`}>{absence.employee.name}</Link> : ''}</td>
+                    <td>{absence.type ? <Link to={`absence-type/${absence.type.id}`}>{absence.type.name}</Link> : ''}</td>
                     <td className="text-right">
                       <div className="btn-group flex-btn-group-container">
                         <Button tag={Link} to={`${match.url}/${absence.id}`} color="info" size="sm">
