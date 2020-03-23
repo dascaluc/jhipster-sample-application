@@ -46,9 +46,9 @@ export const AbsenceDetail = (props: IAbsenceDetailProps) => {
           </dt>
           <dd>{absenceEntity.motivation}</dd>
           <dt>Employee</dt>
-          <dd>{absenceEntity.employee ? absenceEntity.employee.id : ''}</dd>
+          <dd>{absenceEntity.employee ? absenceEntity.employee.name : ''}</dd>
           <dt>Type</dt>
-          <dd>{absenceEntity.type ? absenceEntity.type.id : ''}</dd>
+          <dd>{absenceEntity.type ? absenceEntity.type.name : ''}</dd>
         </dl>
         <Button tag={Link} to="/absence" replace color="info">
           <FontAwesomeIcon icon="arrow-left" /> <span className="d-none d-md-inline">Back</span>

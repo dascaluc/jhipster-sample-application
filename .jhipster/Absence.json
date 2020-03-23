@@ -31,14 +31,14 @@
             "otherEntityName": "employee",
             "otherEntityRelationshipName": "absence",
             "relationshipName": "employee",
-            "otherEntityField": "id"
+            "otherEntityField": "name"
         },
         {
             "relationshipType": "many-to-one",
             "otherEntityName": "absenceType",
             "otherEntityRelationshipName": "absence",
             "relationshipName": "type",
-            "otherEntityField": "id"
+            "otherEntityField": "name"
         }
     ],
     "changelogDate": "20200322190800",
