@@ -36,11 +36,11 @@ relationship ManyToOne {
 }
 
 relationship ManyToOne {
-	Absence{employee} to Employee
+	Absence{employee(name)} to Employee
 }
 
 relationship ManyToOne {
-	Absence{type} to AbsenceType
+	Absence{type(name)} to AbsenceType
 }
 
 // Set pagination options
