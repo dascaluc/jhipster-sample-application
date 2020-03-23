@@ -122,9 +122,9 @@ export const TimeTracking = (props: ITimeTrackingProps) => {
                     </td>
                     <td>{timeTracking.accessTypee}</td>
                     <td>{timeTracking.description}</td>
-                    <td>{timeTracking.door ? <Link to={`door/${timeTracking.door.id}`}>{timeTracking.door.id}</Link> : ''}</td>
+                    <td>{timeTracking.door ? <Link to={`door/${timeTracking.door.id}`}>{timeTracking.door.doorName}</Link> : ''}</td>
                     <td>
-                      {timeTracking.employee ? <Link to={`employee/${timeTracking.employee.id}`}>{timeTracking.employee.id}</Link> : ''}
+                      {timeTracking.employee ? <Link to={`employee/${timeTracking.employee.id}`}>{timeTracking.employee.name}</Link> : ''}
                     </td>
                     <td className="text-right">
                       <div className="btn-group flex-btn-group-container">
